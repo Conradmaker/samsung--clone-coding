@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.scss";
-import { MdShoppingCart, MdPerson } from "react-icons/md";
+import "./App_small.scss";
+import { MdShoppingCart, MdPerson, MdReorder } from "react-icons/md";
 
 function App() {
+  const [open, setOpen] = useState(false);
+  const onToggle = () => {
+    setOpen(!open);
+  };
   return (
     <div className="container">
       <header className="section section--nav">
@@ -18,18 +23,25 @@ function App() {
             <li className="menu-list1">오디오</li>
             <li className="menu-list1">소모품</li>
           </ul>
-          <ul className="right-menu">
-            <li className="menu-list1">스토리</li>
-            <li className="menu-list1">멤버십</li>
-            <li className="menu-list1">고객지원</li>
-            <li className="menu-list1">비즈니스</li>
-            <li className="menu-list1 icons">
-              <MdPerson />
-            </li>
-            <li className="menu-list1 icons">
-              <MdShoppingCart />
-            </li>
-          </ul>
+          <div className="right-menu-wrapper">
+            <ul className="right-menu">
+              <li className="menu-list1">스토리</li>
+              <li className="menu-list1">멤버십</li>
+              <li className="menu-list1">고객지원</li>
+              <li className="menu-list1">비즈니스</li>
+            </ul>{" "}
+            <ul className="icon-group">
+              <li className="menu-list1 icons1">
+                <MdPerson />
+              </li>
+              <li className="menu-list1 icons1">
+                <MdShoppingCart />
+              </li>
+              <li className="menu-list1 icons1 icons2" onclick={onToggle}>
+                <MdReorder />
+              </li>
+            </ul>
+          </div>
         </div>
       </header>
 
@@ -140,7 +152,7 @@ function App() {
             </ul>
           </div>
           <div className="summary2">
-            <h1 className="summary-title">Galaxy Book S 런칭</h1>
+            <h1 className="summary-title">Galaxy&nbsp;Book&nbsp;S 런칭</h1>
             <button className="btn-more-info">상품 구매 혜택</button>
           </div>
         </div>
@@ -150,6 +162,7 @@ function App() {
           <div className="catagory--container">
             <ul className="product">
               <h5>제품</h5>
+              <MdReorder className="catagory-toggle" />
               <li>스마트폰</li>
               <li>태블릿</li>
               <li>웨어러블</li>
@@ -158,6 +171,7 @@ function App() {
               <li>Lifestyle TV</li>
               <li>BESPOKE</li> <li>삼성 오디오</li>
             </ul>
+
             <ul className="product2">
               <h5>ㅁㄴㅇ</h5>
               <li>냉장고</li>
@@ -171,7 +185,7 @@ function App() {
             </ul>
 
             <ul className="customer">
-              <h5>고객문의</h5>
+              <h5>고객문의</h5> <MdReorder className="catagory-toggle" />
               <li>FAQ</li>
               <li>이메일 상담</li>
               <li>매장 찾기</li>
@@ -182,7 +196,7 @@ function App() {
               <li>삼성멤버스 커뮤니티</li>
             </ul>
             <ul className="information">
-              <h5>부가정보</h5>
+              <h5>부가정보</h5> <MdReorder className="catagory-toggle" />
               <li>삼성 디지털 프라자</li>
               <li>데이코</li>
               <li>뉴스룸</li>
@@ -193,6 +207,7 @@ function App() {
             </ul>
             <ul className="company">
               <h5>기업정보</h5>
+              <MdReorder className="catagory-toggle" />
               <li>회사소개</li>
               <li>투자자 정보</li>
               <li>공지사항</li>
